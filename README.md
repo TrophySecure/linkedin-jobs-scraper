@@ -1,394 +1,154 @@
-[Linkedin Jobs Scraper](https://apify.com/ohwnnn/linkedin-jobs-scraper?fpr=data)
+[Linkedin Jobs Scraper](https://apify.com/fatihai-tools/linkedin-jobs-scraper?fpr=data)
+
+# LinkedIn Jobs Scraper - Extract Job Listings Without Login
+
+Scrape thousands of LinkedIn job listings **without login, cookies, or API key**. Get complete job data including title, company, salary, full description, and direct application link. Pay only **$2 per 1,000 results** -- the most affordable LinkedIn jobs API on the market.
+
+## Why Choose This LinkedIn Jobs Scraper?
+
+- **No Login Required** -- Accesses LinkedIn's public jobs endpoint. Zero risk to your LinkedIn account.
+- **No API Key Needed** -- Start scraping in 60 seconds. No OAuth, no tokens, no setup.
+- **Complete Job Data** -- Title, company, salary range, full HTML description, apply URL, seniority, industry.
+- **Powerful Filters** -- Filter by job type, experience level, remote/hybrid/on-site, salary range, Easy Apply, date posted, and company.
+- **Fast Extraction** -- 1,000 jobs in approximately 5 minutes with automatic retry logic.
+- **Export to Any Format** -- JSON, CSV, Excel, XML. Integrate with Google Sheets, Airtable, Zapier, Make, or your own pipeline.
+- **Pay Per Result** -- $2/1K results. No monthly subscription, no minimum commitment.
+
+## What Data Do You Get?
+
+| Field | Description | Example |
+| --- | --- | --- |
+| `title` | Job title | Senior Software Engineer |
+| `company` | Company name | Google |
+| `location` | Job location | San Francisco, CA |
+| `salary` | Salary range (when available) | $180,000 - $250,000/yr |
+| `description` | Full job description (text) | We're looking for a Senior... |
+| `descriptionHtml` | Job description (HTML format) | `<p>We're looking for...</p>` |
+| `employmentType` | Employment type | Full-time, Part-time, Contract |
+| `seniorityLevel` | Seniority level | Entry, Mid-Senior, Director, Executive |
+| `jobFunction` | Job function | Engineering, Marketing, Sales |
+| `industries` | Company industry | Technology, Information and Internet |
+| `applicants` | Number of applicants | Over 200 applicants |
+| `postedDate` | Posting date | 2026-03-01 |
+| `jobUrl` | Direct link to job posting | [https://linkedin.com/jobs/view/](https://linkedin.com/jobs/view/)... |
+| `companyUrl` | Link to company page | [https://linkedin.com/company/](https://linkedin.com/company/)... |
+| `applyUrl` | Direct application URL | [https://careers.google.com/](https://careers.google.com/)... |
+
+## Use Cases
+
+- **Job Boards & Aggregators** -- Build your own Indeed or Glassdoor by aggregating LinkedIn jobs into your platform.
+- **Market Research & Hiring Trends** -- Analyze which roles, skills, and locations are in demand across industries.
+- **Salary Benchmarking** -- Compare salary ranges across companies, roles, and locations for compensation planning.
+- **HR & Talent Analytics** -- Track competitor hiring patterns to predict company strategy and growth.
+- **Lead Generation** -- Companies that are hiring are growing -- and growing companies buy software, services, and tools.
+- **Recruitment & Staffing** -- Source fresh job listings for your candidates and match them automatically.
+- **Academic Research** -- Study labor market dynamics, remote work trends, and skill demand over time.
+
+## Available Filters
+
+| Filter | Options |
+| --- | --- |
+| **Keywords** | Any job title, skill, or keyword |
+| **Location** | City, state, country, or "remote" |
+| **Job Type** | Full-time, Part-time, Contract, Temporary, Volunteer, Internship |
+| **Experience Level** | Internship, Entry-level, Associate, Mid-Senior, Director, Executive |
+| **Workplace Type** | On-site, Remote, Hybrid |
+| **Date Posted** | Past 24 hours, Past Week, Past Month |
+| **Salary Range** | $40K+, $60K+, $80K+, $100K+, $120K+, $140K+, $160K+, $180K+, $200K+ |
+| **Easy Apply** | LinkedIn Easy Apply jobs only |
+| **Company** | Filter by specific company IDs |
+
+## Input Example
+
+```
+{
+    "keywords": "Software Engineer",
+    "location": "San Francisco",
+    "jobType": ["full-time"],
+    "experienceLevel": ["mid-senior"],
+    "workplaceType": ["remote", "hybrid"],
+    "datePosted": "past-week",
+    "maxItems": 500,
+    "includeDescription": true
+}
+```
+
+## Output Example
+
+```
+{
+    "jobId": "3847291056",
+    "title": "Senior Software Engineer",
+    "company": "Google",
+    "location": "San Francisco, CA",
+    "salary": "$180,000 - $250,000/yr",
+    "description": "We're looking for a Senior Software Engineer to join our Cloud Platform team...",
+    "descriptionHtml": "<div><p>We're looking for a Senior Software Engineer...</p></div>",
+    "employmentType": "Full-time",
+    "seniorityLevel": "Mid-Senior level",
+    "jobFunction": "Engineering and Information Technology",
+    "industries": "Technology, Information and Internet",
+    "applicants": "Over 200 applicants",
+    "postedDate": "2026-03-01",
+    "jobUrl": "https://www.linkedin.com/jobs/view/3847291056",
+    "companyUrl": "https://www.linkedin.com/company/google",
+    "applyUrl": "https://careers.google.com/jobs/results/123456"
+}
+```
+
+## Pricing
+
+| Volume | Cost | Per Job |
+| --- | --- | --- |
+| 1,000 jobs | $2.00 | $0.002 |
+| 10,000 jobs | $20.00 | $0.002 |
+| 100,000 jobs | $200.00 | $0.002 |
 
-$/$Skip to content[![Apify logo](/img/apify-logo/wordmark.svg)![Apify logo](/img/apify-logo/wordmark-white.svg)](https://apify.com/)
+**Free tier available** on Apify's free plan -- try before you buy.
 
-- [![Promotion image background](https://cdn-cms.apify.com/Apify_Store_b55e0b3991.webp)
+No monthly subscription. No minimum commitment. Pay only for what you scrape.
 
-Start here!
+## Alternatives Comparison
 
-Get data with ready-made web scrapers for popular websites
+| Feature | This Actor | PhantomBuster | Bright Data | Manual Search |
+| --- | --- | --- | --- | --- |
+| No Login Required | Yes | No | No | No |
+| No API Key | Yes | No | No | N/A |
+| Full Job Description | Yes | Limited | Yes | Yes |
+| Salary Data | Yes | Limited | Yes | Yes |
+| Bulk Export (JSON/CSV) | Yes | Yes | Yes | No |
+| Price per 1K jobs | **$2** | $69/mo plan | $500/mo plan | Free (manual) |
+| Speed | 1K in 5 min | 1K in 15 min | 1K in 10 min | ~50/hour |
+| Filters (type, level, salary) | Yes | Limited | Yes | Yes |
+| Scheduling & Webhooks | Yes (Apify) | Yes | Yes | No |
 
-Browse 27,897 Actors](https://apify.com/store)
+## FAQ
 
-Apify platform
+**Do I need a LinkedIn account?**
+No. This scraper uses LinkedIn's public job listings endpoint. No account, login, or cookies are needed.
 
-- [Apify Store
+**Is scraping LinkedIn jobs legal?**
+This actor only accesses publicly available job listing data that anyone can view without logging in. It does not access private profiles or authenticated content.
 
-Pre-built web scraping tools](https://apify.com/store)
-- [Actors
+**How many jobs can I scrape per run?**
+There is no hard limit on our side. LinkedIn typically returns up to 1,000 results per search query. For larger datasets, use multiple keyword and location combinations.
 
-Build and run serverless programs](https://apify.com/actors)
-- [Integrations
+**Can I schedule automatic daily runs?**
+Yes. Apify has built-in scheduling. Set it to run daily, weekly, or at any custom interval. Results can be sent via webhook, email, or API.
 
-Connect with apps and services](https://apify.com/integrations)
-- [MCP
+**What about rate limiting?**
+The scraper handles rate limiting automatically with intelligent delays and retry logic. Residential proxies are used for best reliability.
 
-Give your AI access to Actors](https://mcp.apify.com/)
+**Can I integrate this with my application?**
+Yes. Use the Apify API to trigger runs, fetch results, and integrate with any programming language. SDKs available for Python, JavaScript, and more.
 
-Anti-blocking
+**How fresh is the data?**
+Every run scrapes live data directly from LinkedIn. Results are always current as of the run time.
 
-- [Anti-blocking
+## Related Actors
 
-Scrape without getting blocked](https://apify.com/anti-blocking)
-- [Proxy
+Build a complete data pipeline with our other scrapers:
 
-Rotate scraper IP addresses](https://apify.com/proxy)
-
-Open source
-
-- [Crawlee
-
-Web scraping and crawling library](https://crawlee.dev/)
-- [![Promotion image background](https://cdn-cms.apify.com/mcp_server_configuration_manu_image_light_a56988095e.png)
-
-MCP server configuration
-
-Configure your Apify MCP server with Actors and tools for seamless integration with MCP clients.
-
-Start building](https://mcp.apify.com/)
-
-Web data for
-
-- [Enterprise](https://apify.com/enterprise)
-- [Startups](https://apify.com/resources/startups)
-- [Universities](https://apify.com/resources/universities)
-- [Nonprofits](https://apify.com/resources/nonprofits)
-
-Use cases
-
-- [Data for generative AI](https://apify.com/use-cases/data-for-generative-ai)
-- [Data for AI agents](https://apify.com/use-cases/data-for-ai-agents)
-- [Lead generation](https://apify.com/use-cases/lead-generation)
-- [Market research](https://apify.com/use-cases/market-research)
-- [View more →](https://apify.com/use-cases)
-
-Consulting
-
-- [Apify Professional Services](https://apify.com/professional-services)
-- [Apify Partners](https://apify.com/partners)
-- - [Documentation
-
-Full reference for the Apify platform](https://docs.apify.com/)
-
-Get started
-
-- [Code templates
-
-Python, JavaScript, and TypeScript](https://apify.com/templates)
-- [Web scraping academy
-
-Courses for beginners and experts](https://docs.apify.com/academy)
-- [Monetize your code
-
-Publish your scrapers and get paid](https://apify.com/partners/actor-developers)
-
-Learn
-
-- [API reference](https://docs.apify.com/api)
-- [CLI](https://docs.apify.com/cli/)
-- [SDK](https://docs.apify.com/sdk)
-- [MCP](https://docs.apify.com/platform/integrations/mcp)
-- [Crawlee](https://crawlee.dev/)
-
-[![Promotion image background](https://cdn-cms.apify.com/open_source_fair_share_light_resized_10_a382097735.png)
-
-Earn from your code
-
-$1M paid out last month. Many developers earn over $3k.
-
-Start earning now](https://apify.com/partners/actor-developers)
-- - [Help and support
-
-Advice and answers about Apify](https://help.apify.com/en/)
-- [Actor ideas
-
-Get inspired to build Actors](https://apify.com/ideas)
-- [Changelog
-
-See what’s new on Apify](https://apify.com/change-log)
-- [Customer stories
-
-Find out how others use Apify](https://apify.com/success-stories)
-
-Company
-
-- [About Apify](https://apify.com/about)
-- [Contact us](https://apify.com/contact)
-- [Blog](https://blog.apify.com/)
-- [Live events](https://lu.ma/apify)
-- [Partners](https://apify.com/partners)
-- [Jobs
-
-We're hiring!](https://apify.com/jobs)
-
-[![Promotion image background](https://cdn-cms.apify.com/Join_our_Discord_b7eb9d974a.webp)
-
-Join our Discord
-
-Talk to scraping experts](https://discord.com/invite/jyEM2PRvMU)
-- [Pricing](https://apify.com/pricing)
-- [Contact sales](https://apify.com/contact-sales)
-
-![LinkedIn Job & Company Intelligence Scraper avatar](https://images.apifyusercontent.com/ScgbdUxfcucINlpzWdWvTmy3ht3-wTpUIjvCcyIDaHM/rs:fill:250:250/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vRW9qZmdiUFhQVVJsZDgyTkctYWN0b3ItSlJyaERVZHdYcEJhVkdGOUstRWZPcXhETWh2cS1jaGFubmVsczRfcHJvZmlsZS5qcGc.webp)
-
-LinkedIn Job & Company Intelligence Scraper
-
-Under maintenance
-
-Pricing
-
-from $3.00 / 1,000 result scrapeds
-
-[Try for free](https://console.apify.com/actors/JRrhDUdwXpBaVGF9K?addFromActorId=JRrhDUdwXpBaVGF9K)[Go to Apify Store](https://apify.com/store)![LinkedIn Job & Company Intelligence Scraper](https://images.apifyusercontent.com/ScgbdUxfcucINlpzWdWvTmy3ht3-wTpUIjvCcyIDaHM/rs:fill:250:250/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vRW9qZmdiUFhQVVJsZDgyTkctYWN0b3ItSlJyaERVZHdYcEJhVkdGOUstRWZPcXhETWh2cS1jaGFubmVsczRfcHJvZmlsZS5qcGc.webp)
-
-# LinkedIn Job & Company Intelligence Scraper
-
-Under maintenance[Try for free](https://console.apify.com/actors/JRrhDUdwXpBaVGF9K?addFromActorId=JRrhDUdwXpBaVGF9K)
-
-Scrape LinkedIn job listings at scale. Extract job titles, seniority, skills, company info, salaries & descriptions. Ideal for recruiters, HR tech & B2B sales prospecting. No LinkedIn account required.
-
-Pricing
-
-from $3.00 / 1,000 result scrapeds
-
-Rating
-
-0.0
-
-( 0 )
-
-Developer
-
-[![Owen Carter](/_next/image?url=https%3A%2F%2Fimages.apifyusercontent.com%2F-BVy0_ZIDGOAVSaGmgI_flPuTOwqcICpt3TktayRH68%2Frs%3Afill%3A224%3A224%2Fcb%3A1%2FaHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vRW9qZmdiUFhQVVJsZDgyTkctcHJvZmlsZS1QNGV4dlBScElsLWltYWdlMF8lMjg1JTI5LmpwZWc.webp&w=3840&q=75)
-
-Owen Carter](https://apify.com/ohwnnn)Maintained by  Community
-
-Actor stats
-
-0
-
-Bookmarked
-
-2
-
-Total users
-
-0
-
-Monthly active users
-
-18 days ago
-
-Last modified
-
-Categories
-
-[Jobs](https://apify.com/store/categories/jobs)[Lead generation](https://apify.com/store/categories/lead-generation)[Automation](https://apify.com/store/categories/automation)
-
-Share
-
-[README](https://apify.com/ohwnnn/linkedin-jobs-scraper)[Input](https://apify.com/ohwnnn/linkedin-jobs-scraper/input-schema)[Pricing](https://apify.com/ohwnnn/linkedin-jobs-scraper/pricing)[API](https://apify.com/ohwnnn/linkedin-jobs-scraper/api/python)[Issues](https://apify.com/ohwnnn/linkedin-jobs-scraper/issues/open)
-
-The Actor has no **README.md** file. Sad!
-
-## You might also like
-
-[![LinkedIn Jobs Scraper avatar](https://images.apifyusercontent.com/Twrv2y8tVulixK_fu16vc0VA3m9RdPsKjrKdXgzGAGU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vN2M4QTc3T0pINm05ZkN3bnYtYWN0b3ItdmJqUFhoZ0o5dThYaE1jQ1ctRjhnQ3lJUEN5Sy0wMV9saW5rZWRpbl9qb2JzX3YyLnBuZw.webp)
-
-### LinkedIn Jobs Scraper
-
-lentic_clockss / linkedin-jobs-scraper
-
-Scrape LinkedIn job listings at scale. Extract job titles, companies, salaries, descriptions, and more. No login required.
-
-![User avatar](https://images.apifyusercontent.com/YMoOHsVoqJcISmUIE8R916uZ-xA2WJWfJlKVYSPuz8Q/rs:fill:32:32/cb:1/aHR0cHM6Ly9pbWFnZXMuYXBpZnl1c2VyY29udGVudC5jb20vNHV6ZFdpRUk5eGZUQTg3MGxDZkdwblJQNWczVWVkZWl4UFlGN0xhR012VS9yczpmaWxsOjMyOjMyL2NiOjEvYUhSMGNITTZMeTloY0dsbWVTMXBiV0ZuWlMxMWNHeHZZV1J6TFhCeWIyUXVjek11ZFhNdFpXRnpkQzB4TG1GdFlYcHZibUYzY3k1amIyMHZOMk00UVRjM1QwcElObTA1WmtOM2JuWXRjSEp2Wm1sc1pTMXpla05FVDNkUk5HNDNMV2x0WVdkbExuQnVady5wbmc.webp)
-
-kane liu
-
-3](https://apify.com/lentic_clockss/linkedin-jobs-scraper)[![Linkedin Job Scraper avatar](https://images.apifyusercontent.com/ps7FFrEZyPFrAXGSnUxU012DsKUpTD2PlcIGqae1clg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vZk51R3RINE9rWmxvWjhYUzAtYWN0b3ItcHpmeUxvZmdYcWpjaEFvTEgtTE1TWFVzNGdiTi1oZl8yMDI2MDMxOV8wODAzMTdfOWU1ZGFiNjQtMWRiYy00ZDEwLThmMTgtNjcxZWQxOTY5YmRmLmpwZWc.webp)
-
-### Linkedin Job Scraper
-
-irreplaceable_zest / linkedin-job-scraper
-
-Fast, reliable LinkedIn job scraper that extracts structured data from public job listings — no LinkedIn account required.
-
-![User avatar](https://images.apifyusercontent.com/WGkhiE-QW-nD5VkMP0s3c5snocIeig_kYgRvFnDJmTQ/rs:fill:32:32/cb:1/aHR0cHM6Ly9pbWFnZXMuYXBpZnl1c2VyY29udGVudC5jb20vSnRqcTJ0ZlRwUXY4SHZ0MWt2R2FyZWVSTGZuUXJzTE5acldtWjEzMlNfNC9yczpmaWxsOjMyOjMyL2NiOjEvYUhSMGNITTZMeTloY0dsbWVTMXBiV0ZuWlMxMWNHeHZZV1J6TFhCeWIyUXVjek11ZFhNdFpXRnpkQzB4TG1GdFlYcHZibUYzY3k1amIyMHZaazUxUjNSSU5FOXJXbXh2V2poWVV6QXRjSEp2Wm1sc1pTMWFkVlJSV0hoeFJtaEdMV2htWHpJd01qWXdNekU1WHpBM05EUXpNMTh6TURFeE1tVXdPQzB5Tm1VNExUUTJNREF0WVRCa09DMDNNbUl4Wm1ZNU1UTTNOakl1Y0c1bi5wbmc.webp)
-
-Patrik
-
-8](https://apify.com/irreplaceable_zest/linkedin-job-scraper)[### linkedin Job Scraper
-
-potent_xenoblast / linkedin-job-scraper
-
-linkedin Job Scraper
-
-![User avatar](https://images.apifyusercontent.com/iXC7PtiYp2A-nphYH0qU-bcT2JnPjzsLmNNp-3zc3do/rs:fill:32:32/cb:1/aHR0cHM6Ly9pbWFnZXMuYXBpZnl1c2VyY29udGVudC5jb20vV3RzUFZBSmsxQ3p1aU45OEFtMENqaGRxVW1LM2U1cVAtNnM2ckhHekxLUS9yczpmaWxsOjMyOjMyL2NiOjEvYUhSMGNITTZMeTlzYURNdVoyOXZaMnhsZFhObGNtTnZiblJsYm5RdVkyOXRMMkV2UVVObk9HOWpURkl5U1ZoVWFFazFTMDltVDNWUFdtdFVaM0Z3VkhGWk9Fb3RUbXR2WkhoWk5WUlFhVGRTVUU1WE1ERjRiVE5CUFhNNU5pMWo.webp)
-
-Manish Choudhary
-
-37
-
-5.0](https://apify.com/potent_xenoblast/linkedin-job-scraper)[![Linkedin Job Scraper avatar](https://images.apifyusercontent.com/qUDMBcOVFUbr2tbTJD1kQHvEtivRiQOtnqaq7CorTVA/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vaGt1VWFST1FoMEVJQm9mSEMtYWN0b3ItcHpWNTNwOHJFOWNyQ0dRT24tcnRXRDdJcEQ3cS1zYWxlbGVhZHMuanBn.webp)
-
-### Linkedin Job Scraper
-
-saleleads.ai / linkedin-job-scraper
-
-Linkedin Job Scraper
-
-![User avatar](https://images.apifyusercontent.com/yclUYq5YXWl4N0QuIepnU0wuESAxVZOdWleRlaZ4Nyk/rs:fill:32:32/cb:1/aHR0cHM6Ly9pbWFnZXMuYXBpZnl1c2VyY29udGVudC5jb20vVkNVdi1ackxlYTFCOW9lWnpoMDIxNTk2WG8ya1I0cXRzbTI3aHdUa1hmQS9yczpmaWxsOjMyOjMyL2NiOjEvYUhSMGNITTZMeTloY0dsbWVTMXBiV0ZuWlMxMWNHeHZZV1J6TFhCeWIyUXVjek11ZFhNdFpXRnpkQzB4TG1GdFlYcHZibUYzY3k1amIyMHZhR3QxVldGU1QxRm9NRVZKUW05bVNFTXRjSEp2Wm1sc1pTMXhhbVUyWjBKQlYyVmFMWE5oYkdWc1pXRmtjeTVxY0djLmpwZw.webp)
-
-Saleleads
-
-7](https://apify.com/saleleads.ai/linkedin-job-scraper)[![Linkedin Jobs Scraper avatar](https://images.apifyusercontent.com/yXLvuyjahMYWEu3C-oqqMqjB-kPsbslQZf_fnE8f9j8/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vRGUzTGRvSlYyYmZ0OFZtb0stYWN0b3ItYm1ERjJjZnpENzFhd2FldTUtM2JaVjZ5YlcyTi1saW5rZWRpbi5wbmc.webp)
-
-### Linkedin Jobs Scraper
-
-scraper-engine / linkedin-jobs-scraper
-
-Scrape LinkedIn job listings with titles, companies, locations, salaries, seniority, and descriptions. Ideal for recruiters, analysts, and job-market insights with clean structured output.
-
-![User avatar](https://images.apifyusercontent.com/9t72OOX80ske1qF95-c5VMVFAUoKNgMSENcqwybpj5s/rs:fill:32:32/cb:1/aHR0cHM6Ly9pbWFnZXMuYXBpZnl1c2VyY29udGVudC5jb20vZE9IcU1GQ09MYVRteEhEeHRjWm53djRqSkRsMEo4RTFlX29MM3VMMDh2Yy9yczpmaWxsOjMyOjMyL2NiOjEvYUhSMGNITTZMeTloY0dsbWVTMXBiV0ZuWlMxMWNHeHZZV1J6TFhCeWIyUXVjek11ZFhNdFpXRnpkQzB4TG1GdFlYcHZibUYzY3k1amIyMHZSR1V6VEdSdlNsWXlZbVowT0ZadGIwc3RjSEp2Wm1sc1pTMW1NMlZ0UVZjd05YZzVMV2x0WVdkbE1qSXlNaTV3Ym1jLnBuZw.webp)
-
-Scraper Engine
-
-325](https://apify.com/scraper-engine/linkedin-jobs-scraper)[![Linkedin Job Scraper Api avatar](https://images.apifyusercontent.com/hkEFx3kVYg_GsFpegWP_ArdUDSGwOJCOL95o8AijlnM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vSmZqZVQwT2dvWlc3cXVmWXItYWN0b3ItWmp5Skh0WnZIb3k3dkQyQkktVFB1Q25CNnlleS1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2dpajBiNGdpajBiNGdpajAucG5n.webp)
-
-### Linkedin Job Scraper Api
-
-xanthic_polygon / linkedin-job-scraper-api
-
-Powerful LinkedIn Job Scraper for recruiters and HR tech. Extract full job listings including job titles, descriptions, salaries, and company info. Supports filtering by "Remote" locations and specific keywords. Uses residential proxies to ensure 100% success rate without blocking.
-
-![User avatar](https://images.apifyusercontent.com/XjLQOM6jHI3Sicf67G-HXmNqq0U-aYQ0ilSEgqMBqkg/rs:fill:32:32/cb:1/aHR0cHM6Ly9pbWFnZXMuYXBpZnl1c2VyY29udGVudC5jb20vdFpsUEZkaWpSTjIzYmVKcW5TYktjOHB6TXYwVXBmdFdrU09KX2E5eE1HZy9yczpmaWxsOjMyOjMyL2NiOjEvYUhSMGNITTZMeTlzYURNdVoyOXZaMnhsZFhObGNtTnZiblJsYm5RdVkyOXRMMkV2UVVObk9HOWpUR0ZYTjAxV1ZHOVVhbEZXU21GdE1EVkdiV3QzYUZOeFNrNUpZWGxWTUdvNFNHRllibmxTZEdrMU5ucElhWHBuUFhNNU5pMWo.webp)
-
-Fuat Sezer
-
-7](https://apify.com/xanthic_polygon/linkedin-job-scraper-api)[![Linkedin Jobs Scraper avatar](https://images.apifyusercontent.com/zNE7z90MnHxCHcj-xMerxzDlD-42bfyw3a4AO0Ov_CQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vN2cyYlU5RFAydVpzWG9QYXAtYWN0b3ItbGExV1Y3YW05SDBRZlNUdVctRDRicHZYbGpzRi1MaW5rZWRJbi5wbmc.webp)
-
-### Linkedin Jobs Scraper
-
-scraperforge / linkedin-jobs-scraper
-
-Scrape LinkedIn job listings with ease 💼📊 Extract job titles, companies, locations, salaries, descriptions, posted dates, and direct links. Perfect for job tracking, recruitment insights, market research, and lead generation. Automate LinkedIn job data collection at scale 🚀
-
-ScraperForge
-
-5](https://apify.com/scraperforge/linkedin-jobs-scraper)[### LinkedIn Jobs Scraper
-
-optimus-fulcria / linkedin-jobs-scraper
-
-Scrape job listings from LinkedIn public search. Extract titles, companies, locations, salaries, descriptions. No login required.
-
-![User avatar](https://images.apifyusercontent.com/VduIz3Bv-L-znO5vu5MYfOmMcUTFiQDgRl7I4zJohXY/rs:fill:32:32/cb:1/aHR0cHM6Ly9pbWFnZXMuYXBpZnl1c2VyY29udGVudC5jb20vWkxRZFI2TEFsamswUnphNU9ZbzU4WnBONDRERjF4aFpyZVdSZ3llRmVzSS9yczpmaWxsOjMyOjMyL2NiOjEvYUhSMGNITTZMeTloZG1GMFlYSnpMbWRwZEdoMVluVnpaWEpqYjI1MFpXNTBMbU52YlM5MUx6STFOemczTWpRMk5EOTJQVFE.webp)
-
-Fulcria Labs
-
-5](https://apify.com/optimus-fulcria/linkedin-jobs-scraper)[![LinkedIn Jobs Scraper avatar](https://images.apifyusercontent.com/k7idNcU-3r4UBZlwLzPevp0iBcJ5vr6AHlzNL-wkdX8/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vbmpweDd0aTg5azdaWnljcTMtYWN0b3ItemhRZ0l3T2VLeUNkcllBTXMtSEsxTUhmYVA5di1MaW5rZWRJbl9sb2dvX2luaXRpYWxzLnBuZw.webp)
-
-### LinkedIn Jobs Scraper
-
-pramodkonde17 / linkedin-jobs-scraper
-
-Scrape job listings from LinkedIn's public job search
-
-![User avatar](https://images.apifyusercontent.com/HrTJkaZ0_ZLjn2kh_f90TV97PSaQmHc6HaMS67j-eLY/rs:fill:32:32/cb:1/aHR0cHM6Ly9pbWFnZXMuYXBpZnl1c2VyY29udGVudC5jb20vR25HZXdSdUZFX3B1dGh3Y0pOT2thMnpBc3FYVzhwU3dlc01YdGtDWVdlMC9yczpmaWxsOjMyOjMyL2NiOjEvYUhSMGNITTZMeTloZG1GMFlYSnpMbWRwZEdoMVluVnpaWEpqYjI1MFpXNTBMbU52YlM5MUx6VXdPVEF5TlRrNFAzWTlOQQ.webp)
-
-Pramod Konde
-
-19](https://apify.com/pramodkonde17/linkedin-jobs-scraper)[![LinkedIn Job Search avatar](https://images.apifyusercontent.com/NWIMmMG8Dyje0XFtM-jNDhaEb3XfKFTtIdWCtF2QQk4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vZkxFclF3Y3NsR2VjeVFpS0ktYWN0b3ItdVI0elBCTWY1dVBCanlEZkUtMDE1UGhBS1JsZC0yMmU0OGVhMC0xYzg0LTQ2OWUtODJjMC0zNWNjNzFjNDFmNWQucG5n.webp)
-
-### LinkedIn Job Search
-
-seemuapps / linkedin-job-search
-
-Search LinkedIn job listings by keyword and location extract title, company, salary, seniority, employment type, and full job description.
-
-![User avatar](https://images.apifyusercontent.com/mEMrEw08rLQV24HTj3qJzzstujhcs__7kzpgHzGye8w/rs:fill:32:32/cb:1/aHR0cHM6Ly9pbWFnZXMuYXBpZnl1c2VyY29udGVudC5jb20vSURVVTg2ZUZuTEZSNU5rWm04WktxWlhPU1pFVEZIbXB2amZrNS1NWVlKcy9yczpmaWxsOjMyOjMyL2NiOjEvYUhSMGNITTZMeTloY0dsbWVTMXBiV0ZuWlMxMWNHeHZZV1J6TFhCeWIyUXVjek11ZFhNdFpXRnpkQzB4TG1GdFlYcHZibUYzY3k1amIyMHZaa3hGY2xGM1kzTnNSMlZqZVZGcFMwa3RjSEp2Wm1sc1pTMHhWa1pLWmxWVU5XSkVMVU5vWVhSSFVGUmZTVzFoWjJWZlRXRjVYekZmWHpJd01qWmZYekV5WHpFeFh6QXlYMUJOTG5CdVp3LnBuZw.webp)
-
-Andrew
-
-2](https://apify.com/seemuapps/linkedin-job-search)$/$
-
-Product
-
-- [Apify Store](https://apify.com/store)
-- [Integrations](https://apify.com/integrations)
-- [Proxy](https://apify.com/proxy)
-- [MCP](https://mcp.apify.com/)
-- [Crawlee](https://crawlee.dev/)
-
-Developers
-
-- [Documentation](https://docs.apify.com/)
-- [Code templates](https://apify.com/templates)
-- [API reference](https://docs.apify.com/api)
-- [Get paid on Apify](https://apify.com/partners/actor-developers)
-
-Consulting
-
-- [Professional Services](https://apify.com/professional-services)
-- [Apify Partners](https://apify.com/partners)
-
-Support
-
-- [Help & Support](https://help.apify.com/en/)
-- [Submit your ideas](https://apify.com/ideas)
-- [Forum](https://discord.apify.com/)
-
-Spotlight
-
-- [APIs](https://apify.com/api)
-- [What is web scraping?](https://blog.apify.com/what-is-web-scraping/)
-- [Best web scraping tools](https://blog.apify.com/best-web-scraping-tools/)
-- [Python web scraping libraries](https://blog.apify.com/what-are-the-best-python-web-scraping-libraries/)
-- [Scrapers](https://apify.com/scrapers)
-
-Company
-
-- [About Apify](https://apify.com/about)
-- [Contact us](https://apify.com/contact)
-- [Events](https://lu.ma/apify)
-- [Blog](https://blog.apify.com/)
-- [Become an affiliate](https://apify.com/partners/affiliate)
-- [Customer stories](https://apify.com/success-stories)
-- [Changelog](https://apify.com/change-log)
-- [JobsWe're hiring!](https://apify.com/jobs)
-- [Brand](https://apify.com/resources/brand)
-- [Impressum](https://docs.apify.com/legal)
-
-[![Apify logo](/img/apify-logo/logomark-32x32.svg)](https://apify.com/)
-
-Socials
-
-- 
-- 
-- 
-- 
-- 
-- 
-
-Security
-
-- [![GDPR image](https://cdn-cms.apify.com/GDPR_a807ac9a_ba0683f740.svg)](https://docs.apify.com/legal/gdpr-information)
-- [![SOC2 image](https://cdn-cms.apify.com/SOC_dc6cf5ae_f7999d700f.svg)](https://trust.apify.com/)
-
-Reviews
-
-- [![GetApp Apify user reviews image](/_next/image?url=https%3A%2F%2Fcdn-cms.apify.com%2FGet_App_1f4079a540.png&w=3840&q=75)](https://www.getapp.com/business-intelligence-analytics-software/a/apify/)
-- [![Software Advice Apify reviews image](/_next/image?url=https%3A%2F%2Fcdn-cms.apify.com%2FSoftwareadvice_88026ee6c2.png&w=3840&q=75)](https://www.softwareadvice.com/data-extraction/apify-profile/)
-- [![Capterra Apify user reviews image](/_next/image?url=https%3A%2F%2Fcdn-cms.apify.com%2FCapterra_ce83db3070.png&w=3840&q=75)](https://www.capterra.com/p/150854/Apify/)
-- [![G2 Apify user reviews image](/_next/image?url=https%3A%2F%2Fcdn-cms.apify.com%2FG2_d80d60f2f8.png&w=3840&q=75)](https://www.g2.com/products/apify/reviews)
-- [![TrustRadius Apify user reviews image](/_next/image?url=https%3A%2F%2Fcdn-cms.apify.com%2FTrust_Radius_7ca0e0bdad.png&w=3840&q=75)](https://www.trustradius.com/products/apify/reviews)
-- [![Crozdesk Apify user reviews image](/_next/image?url=https%3A%2F%2Fcdn-cms.apify.com%2FCrozdesk_1d12ceb040.png&w=3840&q=75)](https://crozdesk.com/software/apify)
-
-[Loading status...](https://status.apify.com/)
-
-[Terms of Use](https://docs.apify.com/legal/general-terms-and-conditions)
-
-[Privacy Policy](https://docs.apify.com/legal/privacy-policy)
-
-[Cookie Policy](https://docs.apify.com/legal/cookie-policy)
-
-[©  2026  Apify](https://docs.apify.com/legal)
+- [LinkedIn Post & Content Scraper](https://apify.com/intelligent_yaffle/linkedin-post-scraper) -- Scrape LinkedIn posts with engagement metrics. $2/1K posts.
+- [Contact & Email Finder](https://apify.com/intelligent_yaffle/contact-email-finder) -- Extract emails and phone numbers from any website. $3/1K domains.
+- [Google Maps Email Extractor](https://apify.com/intelligent_yaffle/google-maps-email-extractor) -- Extract business contacts from Google Maps. $5/1K businesses.
